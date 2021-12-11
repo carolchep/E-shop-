@@ -26,17 +26,17 @@
                             <a href="{% url 'core:remove-single-item-from-cart' order_item.item.slug %}"><i
                                     class="fas fa-minus mr-2"></i></a>
                             {{ order_item.quantity }}
-                            <a href="{% url 'core:add_to_cart' order_item.item.slug %}"><i
+                            <a href="{% url 'core:add-to-cart' order_item.item.slug %}"><i
                                     class="fas fa-plus ml-2"></i></a>
                         </td>
                         <td>
                             {% if order_item.item.discount_price %}
                             ${{ order_item.get_total_discount_item_price }}
-                            <span class="badge badge-success">Saving ${{ order_item.get_amount_saved }}</span>
+                            <span class="badge badge-primary">Saving ${{ order_item.get_amount_saved }}</span>
                             {% else %}
                             ${{ order_item.get_total_item_price }}
                             {% endif %}
-                            <a style='color: red;' href="{% url 'core:remove_from_cart' order_item.item.slug %}">
+                            <a style='color: red;' href="{% url 'core:remove-from-cart' order_item.item.slug %}">
                                 <i class="fas fa-trash float-right"></i>
                             </a>
                         </td>
@@ -51,12 +51,12 @@
                         </td>
                     </tr>
                     {% endfor %}
-                    <!-- {% if object.coupon %}
-        <tr>
-            <td colspan="4"><b>Coupon</b></td>
-            <td><b>-${{ object.coupon.amount }}</b></td>
-        </tr>
-      {% endif %}-->
+                    {% if object.coupon %}
+                    <tr>
+                        <td colspan="4"><b>Coupon</b></td>
+                        <td><b>-${{ object.coupon.amount }}</b></td>
+                    </tr>
+                    {% endif %}
                     {% if object.get_total %}
                     <tr>
                         <td colspan="4"><b>Order Total</b></td>
@@ -64,8 +64,8 @@
                     </tr>
                     <tr>
                         <td colspan="5">
-                            <a class='btn btn-danger float-right ml-2' href='/checkout/'>Proceed to checkout</a>
-                            <a class='btn btn-success float-right' href='/'>Continue shopping</a>
+                            <a class='btn btn-warning float-right ml-2' href='/checkout/'>Proceed to checkout</a>
+                            <a class='btn btn-primary float-right' href='/'>Continue shopping</a>
                         </td>
                     </tr>
                     {% endif %}
