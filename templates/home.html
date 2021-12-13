@@ -28,13 +28,13 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Shirts</a>
+            <a class="nav-link" href="{{ item.get_category_display}}">Cleanser</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Sport wears</a>
+            <a class="nav-link" href="{{ item.get_category_display}}">Toner</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Outwears</a>
+            <a class="nav-link" href="{{ item.get_category_display}}">Moisturizers</a>
           </li>
 
         </ul>
@@ -89,13 +89,13 @@
                 </strong>
               </h5>
 
-              <h4 class="font-weight-bold blue-text">
+              <h5 class="font-weight-bold blue-text">
                 {%if item.discount_price%}
                 <strong>{{item.discount_price}}</strong>
                 {%else%}
                 <strong>{{item.price}}</strong>
                 {%endif%}
-              </h4>
+              </h5>
 
             </div>
             <!--Card content-->
